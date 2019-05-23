@@ -1,0 +1,77 @@
+{
+  "name": "check-in",
+  "version": "0.0.1",
+  "description": "Convenient tool to check in some apps or sites",
+  "homepage": "github/oGsLP/check-in",
+  "author": {
+    "name": "oGsLegolas",
+    "email": "1145234011@qq.com",
+    "url": "oGsLP.github.io"
+  },
+  "files": [
+    "lib",
+    "index.js",
+    "test"
+  ],
+  "main": "index.js",
+  "keywords": [
+    "check-in",
+    "tool",
+    "cmd"
+  ],
+  "devDependencies": {
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^3.6.0",
+    "eslint-config-xo": "^0.25.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^1.3.1",
+    "jest": "^23.6.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1"
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": "error",
+      "camelcase": "off"
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "scripts": {
+    "pretest": "eslint .",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "coveralls": "jest --coverage && cat test/coverage/lcov.info | coveralls && rm -rf coverage"
+  },
+  "repository": "oGsLP/check-in",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.20.0"
+  }
+}
